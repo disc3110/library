@@ -50,10 +50,10 @@ function createTable () {
 bookForm.addEventListener("submit", bookInfo)
 function bookInfo(e) {
   e.preventDefault(); //To prevent submission of the form
-  userBook = new Book(`${newTitle.value}`, `${newAuthor.value}`, `${newPages.value}`)
-  myLibrary.push(userBook) // Saves user's new book in my myLibrary
+  newBook = new Book(`${newTitle.value}`, `${newAuthor.value}`, `${newPages.value}`)
+  addBookToLibrary(newBook) // Saves user's new book in my myLibrary
   clear()
-  createTable()
+  addBookRow(myLibrary.length, newBook.title, newBook.author, newBook.pages)
 }
 
 // It clears all inputs and hides form
